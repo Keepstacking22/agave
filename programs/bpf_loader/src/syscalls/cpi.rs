@@ -2213,7 +2213,12 @@ mod tests {
                 .transaction_context
                 .get_account_at_index(1)
                 .unwrap()
+<<<<<<< HEAD
                 .borrow_mut();
+=======
+                .try_borrow_mut()
+                .unwrap();
+>>>>>>> 04fd7a006 (Refactor - `TransactionContext` guards `AccountSharedData` (#5698))
             account.set_data(b"baz".to_vec());
         }
 

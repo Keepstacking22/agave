@@ -993,6 +993,11 @@ mod tests {
             invoke_context
                 .transaction_context
                 .get_account_at_index(0)
+<<<<<<< HEAD:programs/bpf_loader/src/serialization.rs
+=======
+                .unwrap()
+                .try_borrow_mut()
+>>>>>>> 04fd7a006 (Refactor - `TransactionContext` guards `AccountSharedData` (#5698)):program-runtime/src/serialization.rs
                 .unwrap()
                 .borrow_mut()
                 .set_owner(bpf_loader_deprecated::id());
@@ -1189,8 +1194,9 @@ mod tests {
                 .set_owner(bpf_loader_deprecated::id());
             invoke_context
                 .transaction_context
-                .accounts()
-                .try_borrow_mut(0)
+                .get_account_at_index(0)
+                .unwrap()
+                .try_borrow_mut()
                 .unwrap()
                 .set_owner(bpf_loader_deprecated::id());
 
